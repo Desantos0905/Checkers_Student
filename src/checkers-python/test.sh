@@ -24,7 +24,12 @@ do
         ((wins++))
         echo "Game $i: Win"
     else
-        echo "Game $i: Loss"
+        if tail -n 1 "game_logs/game_$i.txt" | grep -q "Tie"; then
+            ((wins++))
+            echo "Game $i: Win"
+        else
+            echo "Game $i: Loss"
+        fi
     fi
 done
 
