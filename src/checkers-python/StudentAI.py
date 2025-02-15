@@ -102,9 +102,9 @@ class MCTS:
         current_color = node.player_color
         move_count = 0
         start_time = time.time() 
-        max_moves = 1000
+        max_moves = 100
 
-        while move_count < max_moves and (time.time() - start_time) < 20:
+        while move_count < max_moves and (time.time() - start_time) < 0.2:
             winner = sim_board.is_win(current_color)
             if winner != 0:
                 return winner
