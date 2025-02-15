@@ -17,10 +17,10 @@ for ((i=1; i<=$iterations; i++))
 do
     echo "Running game $i..."
     # Run the game and save output to a file
-    python3 main.py 7 7 2 l ./main.py ../../Tools/Sample_AIs/Random_AI/main.py > "game_logs/game_$i.txt"
+    python3 main.py 7 7 2 l ../../Tools/Sample_AIs/Random_AI/main.py ./main.py > "game_logs/game_$i.txt"
     
     # Check the last line of output for win
-    if tail -n 1 "game_logs/game_$i.txt" | grep -q "player 1 wins"; then
+    if tail -n 1 "game_logs/game_$i.txt" | grep -q "player 2 wins"; then
         ((wins++))
         echo "Game $i: Win"
     else
